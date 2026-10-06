@@ -180,9 +180,9 @@ function where(brief: Brief): string {
 function receptionSentence(brief: Brief): string {
   const [drone, low, higher, none] = brief.tierShares;
   if (drone + low < 0.05) {
-    return `The feed has not shown it can hear below 1,200 ft anywhere in this circle, so the traffic figures here are a floor and may be far too low.`;
+    return `Public tracking has not shown it can hear below 1,200 ft anywhere in this circle, so the traffic figures here are a floor and may be far too low.`;
   }
-  return `The feed heard aircraft at drone height over ${pct(drone)} of the circle and below 1,200 ft over ${pct(drone + low)}. The remaining ${pct(higher + none)} is unproven, so low traffic there may be undercounted.`;
+  return `Public tracking heard aircraft at drone height over ${pct(drone)} of the circle and below 1,200 ft over ${pct(drone + low)}. The remaining ${pct(higher + none)} is unproven, so low traffic there may be undercounted.`;
 }
 
 /** The brief as plain text, for pasting into a note or a ticket. */
@@ -290,7 +290,11 @@ export function renderBrief(
   actions: { onAirport: (lat: number, lon: number) => void },
 ): void {
   panel.replaceChildren();
-  panel.append(el("p", { class: "muted" }, [`${coord(brief.lat, brief.lon)}, ${where(brief)}`]));
+  panel.append(
+    el("p", { class: "muted" }, [
+      `${coord(brief.lat, brief.lon)}, ${where(brief)}. Ten miles is how far one Zipline site delivers in the FAA assessment. This is any point you pick, not a Zipline site.`,
+    ]),
+  );
   if (brief.cells === 0) {
     panel.append(el("p", {}, ["This point is outside the published operating area. Click inside the outlined box."]));
     return;
@@ -300,7 +304,7 @@ export function renderBrief(
   }
   const total = brief.byGroup.reduce((sum, value) => sum + value, 0);
   const list = el("dl", { class: "brief-list" }, [
-    row("At 80–580 ft", `${num(brief.cruisePresent, 2)} aircraft`, `on average, ${perDay(brief.cruiseMinutesPerDay)}. ${pct(brief.cruiseShareOfArea, 1)} of the whole area's total.`),
+    row("At drone height (80–580 ft)", `${num(brief.cruisePresent, 2)} aircraft`, `on average, ${perDay(brief.cruiseMinutesPerDay)}. ${pct(brief.cruiseShareOfArea, 1)} of the whole area's total.`),
     row("Below 1,200 ft", `${num(brief.lowPresent, 2)} aircraft`, `on average, ${perDay(brief.lowMinutesPerDay)}.`),
   ]);
   panel.append(list);
@@ -314,7 +318,7 @@ export function renderBrief(
       mix.append(segment);
       legend.append(el("li", {}, [el("i", { style: `background:${group.color}` }), `${group.label} ${pct(share)}`]));
     });
-    panel.append(el("div", { class: "brief-block" }, [el("h4", {}, ["Who is at 80–580 ft"]), mix, legend]));
+    panel.append(el("div", { class: "brief-block" }, [el("h4", {}, ["Who is at drone height"]), mix, legend]));
     panel.append(
       el("div", { class: "brief-block" }, [
         el("h4", {}, ["When"]),
@@ -332,7 +336,7 @@ export function renderBrief(
   }
   panel.append(
     el("div", { class: "brief-block" }, [
-      el("h4", {}, ["Runways and pads"]),
+      el("h4", {}, ["Runways and helipads nearby"]),
       el("p", {}, [
         `${pct(brief.standOffAreaShare)} of the circle is within 3 NM of a public-use runway` +
           (brief.standOffTrafficShare == null ? "." : `, and ${pct(brief.standOffTrafficShare)} of its low traffic is there.`),
@@ -345,7 +349,7 @@ export function renderBrief(
   );
   panel.append(
     el("div", { class: "brief-block" }, [
-      el("h4", {}, ["Broadcasting"]),
+      el("h4", {}, ["Do they broadcast their position"]),
       el("p", {}, [
         `ADS-B Out is required at low altitude over ${pct(brief.ruleAreaShare)} of the circle.` +
           (brief.offBandShare == null

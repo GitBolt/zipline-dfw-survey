@@ -4,7 +4,7 @@ import type { FeatureCollection } from "geojson";
 import { decodeCells } from "./data";
 import { createDrawer } from "./drawer";
 import { renderExplorer } from "./explorer";
-import { el } from "./format";
+import { el, num } from "./format";
 import { answers, buildSections } from "./report";
 import { installTips } from "./tip";
 import type { Findings, RawCell } from "./types";
@@ -60,8 +60,8 @@ async function start(app: HTMLElement): Promise<void> {
     filterToggle.setAttribute("aria-expanded", String(open));
   });
   bar.append(
-    el("h1", {}, [findings.study.name]),
-    el("p", { class: "bar-note" }, ["Based on public data only."]),
+    el("h1", {}, ["Who shares the low sky with Zipline in Dallas–Fort Worth"]),
+    el("p", { class: "bar-note" }, ["One week of public flight tracking over the area in Zipline's FAA assessment. Based on public data only."]),
     filterToggle,
     nav,
   );
@@ -74,7 +74,35 @@ async function start(app: HTMLElement): Promise<void> {
     strip.append(chip);
   }
 
+  app.append(welcome(findings));
   installTips(document.body);
+}
+
+/** A short card on arrival that says what this is and how to use it. */
+function welcome(findings: Findings): HTMLElement {
+  const go = el("button", { type: "button", class: "button" }, ["Explore the map"]);
+  const card = el("div", { class: "welcome-card", role: "dialog", "aria-modal": "true", "aria-label": "About this map" }, [
+    el("h2", {}, ["Who shares the low sky with Zipline in Dallas–Fort Worth?"]),
+    el("p", {}, [
+      "Zipline's delivery drones cruise at 330 ft inside the area the FAA has approved around Dallas–Fort Worth. Helicopters and small planes fly low there too.",
+    ]),
+    el("p", {}, [
+      `This map uses ${num(findings.window.hours / 24)} days of public flight tracking to show where those crewed aircraft fly at drone height, whether they broadcast their position, and where public tracking cannot see them.`,
+    ]),
+    el("ul", {}, [
+      el("li", {}, [el("strong", {}, ["Click the map"]), " to see who flies within 10 miles of any point, the reach of one Zipline site."]),
+      el("li", {}, [el("strong", {}, ["Use the filters"]), " on the left for helicopters only, a time of day, or a different view."]),
+      el("li", {}, [el("strong", {}, ["Open a number"]), " along the top for the finding behind it."]),
+    ]),
+    go,
+  ]);
+  const overlay = el("div", { class: "welcome" }, [card]);
+  const close = () => overlay.remove();
+  go.addEventListener("click", close);
+  overlay.addEventListener("click", (event) => event.target === overlay && close());
+  document.addEventListener("keydown", (event) => event.key === "Escape" && close());
+  queueMicrotask(() => go.focus());
+  return overlay;
 }
 
 const app = document.querySelector<HTMLElement>("#app");

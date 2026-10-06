@@ -63,11 +63,11 @@ export function answers(findings: Findings): Answer[] {
   const { q1, q2, q3, q4, q5 } = findings;
   const apt = q2.airports;
   return [
-    { id: "reception", value: `${apt.tracked_to_ground} of ${apt.checked}`, label: "airports heard to the ground" },
-    { id: "rule", value: pct(q1.area.mandatory_share), label: "of the area must broadcast" },
-    { id: "traffic", value: num(q3.cruise.average_present, 1), label: "aircraft at 80–580 ft, typically" },
-    { id: "standoff", value: pct(q4.public_runway_3nm.share_of_low), label: "of low traffic near public runways" },
-    { id: "links", value: `${pct(q5.single_band_miss_share)} or more`, label: "missed on 1090 MHz alone" },
+    { id: "traffic", value: num(q3.cruise.average_present, 1), label: "crewed aircraft at drone height at a typical moment" },
+    { id: "standoff", value: pct(q4.public_runway_3nm.share_of_low), label: "of low traffic is within 3 NM of a public runway" },
+    { id: "rule", value: pct(q1.area.mandatory_share), label: "of Zipline's area requires aircraft to broadcast" },
+    { id: "links", value: `${pct(q5.single_band_miss_share)} or more`, label: "of low traffic is off the main broadcast band" },
+    { id: "reception", value: `${apt.tracked_to_ground} of ${apt.checked}`, label: "airports where public tracking hears to the ground" },
   ];
 }
 
@@ -91,11 +91,11 @@ export function buildSections(findings: Findings, actions: ReportActions): Secti
   const named = new Set(["DFW", "FTW", "AFW", "TKI", "GVT", "LUD", "RBD"]);
   const reception = section(
     "reception",
-    "How low the feed can hear",
+    "How low public tracking can hear",
     [
       big(`${apt.tracked_to_ground} of ${apt.checked}`, `airports where most arrivals and departures were heard to within ${num(apt.ground_ft)} ft of the ground.`),
       p(
-        `Aircraft at an airport are known to reach the ground, so the height at which the feed last hears them is a direct reading of its floor there. Within 10 NM of DFW it heard ${pct(near?.to_ground_share)} of them to the runway. Beyond 30 NM that falls to ${pct(farShare)}, and the feed typically loses an arrival a few hundred feet up.`,
+        `Aircraft at an airport are known to reach the ground, so the height at which public tracking last hears them is a direct reading of its floor there. Within 10 NM of DFW it heard ${pct(near?.to_ground_share)} of them to the runway. Beyond 30 NM that falls to ${pct(farShare)}, and public tracking typically loses an arrival a few hundred feet up.`,
       ),
       p(
         `Across the map, at least ${q2.min_support} different aircraft were heard at drone height in ${pct(q2.heard_cruise_share)} of cells and below 1,200 ft in ${pct(q2.heard_low_share)}. The rest is unproven: it may be quiet, or the receivers may not reach.`,
@@ -127,7 +127,7 @@ export function buildSections(findings: Findings, actions: ReportActions): Secti
           { label: "only heard higher up", share: q2.tiers.higher / total, color: TIER_HEX[2] },
           { label: "nothing heard", share: q2.tiers.none / total, color: TIER_HEX[3], hatch: true },
         ],
-        "Share of map cells by how low the feed was shown to hear",
+        "Share of map cells by how low public tracking was shown to hear",
         (share) => pct(share),
       ),
       details(
@@ -150,7 +150,7 @@ export function buildSections(findings: Findings, actions: ReportActions): Secti
       p(
         `That is the 30 NM Mode C veil around DFW, ${num(q1.area.veil_sq_mi)} sq mi of it inside the area. Over the other ${pct(q1.area.outside_rule_share)}, a low-flying aircraft is not required to broadcast at all. Zipline's comment on the FAA's Part 108 rule asks for that requirement to cover all crewed aircraft.`,
       ),
-      caveat(`${pct(q1.traffic.share_where_required)} of the low traffic the feed heard was inside the veil, but the veil is also where the feed hears best, so the split overstates the difference.`),
+      caveat(`${pct(q1.traffic.share_where_required)} of the low traffic public tracking heard was inside the veil, but the veil is also where public tracking hears best, so the split overstates the difference.`),
     ],
     [
       bars(
@@ -177,7 +177,7 @@ export function buildSections(findings: Findings, actions: ReportActions): Secti
   const larges = findings.health.days.map((d) => d.large_aircraft);
   const traffic = section(
     "traffic",
-    "Who is down low",
+    "Who flies at drone height",
     [
       big(`${num(q3.cruise.average_present, 1)} aircraft`, `on average between 80 and 580 ft, and ${num(q3.low.average_present, 1)} below 1,200 ft, over the whole area.`),
       p(
@@ -187,7 +187,7 @@ export function buildSections(findings: Findings, actions: ReportActions): Secti
         `Weekdays averaged ${num(q3.cruise.weekday_present ?? 0, 1)} in that band and weekends ${num(q3.cruise.weekend_present ?? 0, 1)}. Helicopters are ${pct(cruiseGroups[0] / cruiseTotal)} of the time at 80–580 ft against ${pct(lowGroups[0] / lowTotal)} below 1,200 ft.`,
       ),
       caveat(
-        `Light-aircraft activity ranged from ${num(Math.min(...lights))} to ${num(Math.max(...lights))} aircraft a day while large aircraft stayed between ${num(Math.min(...larges))} and ${num(Math.max(...larges))}, so the swing is flying weather, not the feed.`,
+        `Light-aircraft activity ranged from ${num(Math.min(...lights))} to ${num(Math.max(...lights))} aircraft a day while large aircraft stayed between ${num(Math.min(...larges))} and ${num(Math.max(...larges))}, so the swing is flying weather, not the tracking data.`,
       ),
     ],
     [
@@ -245,7 +245,7 @@ export function buildSections(findings: Findings, actions: ReportActions): Secti
         `Of the ${pct(1 - (q4.public_runway_3nm.share_of_low ?? 0))} outside it, helicopters are ${pct(restGroups[0] / rest)}. They are the aircraft that work low away from runways, at hospital pads and private heliports.${q4.hotspots[0] ? ` The busiest single spot is ${spotName(q4.hotspots[0])}.` : ""}`,
       ),
       p(
-        `The exemption also tells Zipline to avoid "known areas with increased aviation activity". The table lists the busiest such areas this feed can see at 80–580 ft once the runway stand-off is taken out.`,
+        `The exemption also tells Zipline to avoid "known areas with increased aviation activity". The table lists the busiest such areas this network can see at 80–580 ft once the runway stand-off is taken out.`,
       ),
       caveat("The stand-off applies \"without suitable mitigations\", so it is not a line Zipline never crosses. Heights are above bare earth; a helicopter over a rooftop pad reads high by the height of the building."),
     ],
@@ -278,7 +278,7 @@ export function buildSections(findings: Findings, actions: ReportActions): Secti
       p(
         `Most of that is aircraft broadcasting on 978 MHz (UAT) instead, which is ${pct(q5.by_class.light?.uat_or_adsr ?? 0)} of light-aircraft time. A receiver on both bands, as Zipline recommends in its Part 108 comment, would miss at least ${pct(q5.dual_band_miss_share, 1)}: aircraft seen only by radar or by multilateration, with no position broadcast.`,
       ),
-      caveat("Both figures are floors. Aircraft with no transponder never enter the feed, and the feed's ways of seeing non-broadcasters work worst where its reception is weakest."),
+      caveat("Both figures are floors. Aircraft with no transponder never enter public tracking, and the network's ways of seeing non-broadcasters work worst where its reception is weakest."),
     ],
     [
       stack(
@@ -354,7 +354,7 @@ export function buildSections(findings: Findings, actions: ReportActions): Secti
     el("ul", {}, [
       el("li", {}, ["It is not a collision-risk estimate. It counts aircraft time in an altitude band; it does not model encounters."]),
       el("li", {}, ["It does not track Zipline aircraft or sites. The 10-mile brief describes the air around any point you choose."]),
-      el("li", {}, ["It cannot see aircraft with no transponder, or anything below the feed's floor."]),
+      el("li", {}, ["It cannot see aircraft with no transponder, or anything below the network's floor."]),
       el("li", {}, ["It covers one week and one published operating area. The pending Texas metros are not included."]),
       el("li", {}, ["It says nothing about what a receiver on the aircraft would hear. That comparison needs Zipline's own logs."]),
     ]),
@@ -375,7 +375,7 @@ export function buildSections(findings: Findings, actions: ReportActions): Secti
 
   const [first, last] = study.window;
   const about = el("section", { class: "prose", id: "about" }, [
-    el("h2", {}, ["Who flies below 1,200 feet over Dallas–Fort Worth, and who can be heard"]),
+    el("h2", {}, ["Who shares the low sky with Zipline over Dallas–Fort Worth"]),
     p(
       "Zipline's delivery aircraft cruise at 330 ft inside a box the FAA has published for Dallas–Fort Worth. Planes and helicopters use the same air, and Zipline has asked the FAA to require them all to broadcast their position.",
     ),
@@ -390,11 +390,11 @@ export function buildSections(findings: Findings, actions: ReportActions): Secti
     p("Click the map for a brief on the air within 10 miles of any point. The numbers along the top open each finding with its chart and its caveat."),
   ]);
   return [
-    { id: "reception", tab: "Reception", node: reception },
-    { id: "rule", tab: "Broadcast rule", node: rule },
-    { id: "traffic", tab: "Traffic", node: traffic },
+    { id: "traffic", tab: "Who flies low", node: traffic },
     { id: "standoff", tab: "Runways", node: standoff },
-    { id: "links", tab: "Radio link", node: links },
+    { id: "rule", tab: "Broadcast rule", node: rule },
+    { id: "links", tab: "Radio band", node: links },
+    { id: "reception", tab: "Tracking limits", node: reception },
     { id: "method", tab: "Method", node: method },
     { id: "limits", tab: "Limits", node: limits },
     { id: "sources", tab: "Sources", node: sources },

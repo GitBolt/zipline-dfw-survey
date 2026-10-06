@@ -51,7 +51,7 @@ export function renderExplorer(
   const { rail, stage, drawer } = slots;
   const mapNode = el("div", { class: "map", role: "application", "aria-label": "Map of the Dallas–Fort Worth operating area" });
   const legend = el("div", { class: "map-legend" });
-  const hint = el("p", { class: "map-hint" }, ["Click anywhere for a 10-mile brief"]);
+  const hint = el("p", { class: "map-hint" }, ["Click the map to see who flies within 10 miles"]);
   const panel = el("div", { class: "brief" });
   const layerButton = el("button", { type: "button", class: "map-button", "aria-expanded": "false" }, ["Layers"]);
   const layerPanel = el("div", { class: "layer-panel" });
@@ -74,21 +74,22 @@ export function renderExplorer(
 
   function pick(lat: number, lon: number): void {
     const brief = buildBrief(lat, lon, cells, places, findings);
-    map.setPin(lat, lon, brief.miles);
     hint.hidden = true;
     renderBrief(panel, brief, findings, { onAirport: (aLat, aLon) => map.flyTo(aLat, aLon, 11) });
-    drawer.open({ body: panel, wide: false, label: `Within ${brief.miles} miles of this point`, onClose: () => map.clearPin() });
+    drawer.open({ body: panel, wide: false, label: `Who flies within ${brief.miles} miles of here`, onClose: () => map.clearPin() });
+    // After open: opening runs the previous brief's close handler, which clears the old circle.
+    map.setPin(lat, lon, brief.miles);
   }
 
   const summary = el("p", { class: "summary" });
 
   const viewField = segmented<View>(
     "view",
-    "Show",
+    "Show on the map",
     [
-      { value: "traffic", label: "Low traffic" },
-      { value: "reception", label: "How low the feed hears" },
-      { value: "link", label: "Not on 1090 MHz" },
+      { value: "traffic", label: "Where crewed aircraft fly low" },
+      { value: "reception", label: "How low public tracking hears" },
+      { value: "link", label: "Aircraft off the main radio band" },
     ],
     state.view,
     (value) => {
@@ -101,8 +102,8 @@ export function renderExplorer(
     "band",
     "Height above ground",
     [
-      { value: "cruise", label: "80–580 ft" },
-      { value: "low", label: "Surface–1,200 ft" },
+      { value: "cruise", label: "Drone height" },
+      { value: "low", label: "Below 1,200 ft" },
     ],
     state.band,
     (value) => {
@@ -112,7 +113,7 @@ export function renderExplorer(
   );
   const classField = segmented<ClassGroup>(
     "class",
-    "Aircraft",
+    "Crewed aircraft type",
     [
       { value: "all", label: "All" },
       { value: "rotorcraft", label: "Helicopters" },
@@ -173,10 +174,10 @@ export function renderExplorer(
 
   const overlayField = el("fieldset", { class: "checks" }, [el("legend", {}, ["Draw on the map"])]);
   const overlays: [OverlayName, string, boolean][] = [
-    ["standoff", "3 NM runway stand-off", true],
+    ["standoff", "Runway stand-off in Zipline's exemption", true],
     ["facilities", "Airports and heliports", false],
     ["airspace", "Mode C veil and Class B, D", false],
-    ["busy", "Busiest areas off-airport", false],
+    ["busy", "Busiest spots away from runways", false],
   ];
   const overlayInputs = new Map<OverlayName, HTMLInputElement>();
   for (const [name, label, on] of overlays) {
@@ -320,14 +321,14 @@ export function renderExplorer(
     } else if (state.view === "traffic") {
       const cap = map.trafficCap(state.band);
       legend.append(
-        el("p", { class: "legend-title" }, [`Aircraft time ${state.band === "cruise" ? "at 80–580 ft" : "below 1,200 ft"}, per day`]),
+        el("p", { class: "legend-title" }, [`Crewed aircraft time ${state.band === "cruise" ? "at drone height (80–580 ft)" : "below 1,200 ft"}, per day`]),
         el("div", { class: "legend-ramp", style: `background:${rampCss(TRAFFIC_RAMP)}` }),
         el("div", { class: "legend-ticks" }, [el("span", {}, ["0"]), el("span", {}, [`${num(cap / 4, cap < 8 ? 1 : 0)} min`]), el("span", {}, [`${num(cap)} min or more`])]),
         el("ul", { class: "legend-list" }, [swatch("rgb(222,227,224)", "Fewer than 3 aircraft")]),
       );
     } else if (state.view === "reception") {
       legend.append(
-        el("p", { class: "legend-title" }, ["Lowest the feed was shown to hear"]),
+        el("p", { class: "legend-title" }, ["Lowest that public tracking heard aircraft"]),
         el("ul", { class: "legend-list" }, [
           swatch(rgb(TIER_COLORS[0]), "Drone height, below 580 ft"),
           swatch(rgb(TIER_COLORS[1]), "Below 1,200 ft"),
@@ -343,7 +344,7 @@ export function renderExplorer(
         el("ul", { class: "legend-list" }, [swatch("rgb(222,227,224)", "Fewer than 3 aircraft")]),
       );
     }
-    const lines = el("ul", { class: "legend-list lines" }, [el("li", {}, [el("i", { class: "line area" }), "Published operating area"])]);
+    const lines = el("ul", { class: "legend-list lines" }, [el("li", {}, [el("i", { class: "line area" }), "Area in Zipline's FAA assessment"])]);
     if (overlayInputs.get("standoff")?.checked) lines.append(el("li", {}, [el("i", { class: "line standoff" }), "3 NM from a public-use runway"]));
     if (overlayInputs.get("airspace")?.checked) lines.append(el("li", {}, [el("i", { class: "line veil" }), "Mode C veil"]), el("li", {}, [el("i", { class: "line classb" }), "Class B and D surface areas"]));
     if (overlayInputs.get("busy")?.checked) lines.append(el("li", {}, [el("i", { class: "line busy" }), "Busiest areas off-airport"]));
@@ -373,13 +374,13 @@ export function renderExplorer(
       const hours = state.to - state.from + 1;
       const present = total / (windowSeconds * (hours / 24));
       const who = state.group === "all" ? "crewed aircraft" : state.group === "rotorcraft" ? "helicopters" : state.group === "light" ? "light aircraft" : "larger aircraft";
-      const band = state.band === "cruise" ? "between 80 and 580 ft" : "below 1,200 ft";
+      const band = state.band === "cruise" ? "near Zipline's 330 ft cruise height (80–580 ft)" : "below 1,200 ft";
       const when = hours === 24 ? "at a typical moment" : `between ${hourRange(state.from, state.to + 1)}`;
-      summary.append(el("span", { class: "num" }, [num(present, present < 10 ? 1 : 0)]), ` ${who} ${band} ${when}, over the whole area. That is ${perDay(total / 60 / days)} of aircraft time.`);
+      summary.append(el("span", { class: "num" }, [num(present, present < 10 ? 1 : 0)]), ` ${who} ${band} ${when}, across Zipline's Dallas–Fort Worth delivery area.`);
     } else if (state.view === "reception") {
-      summary.append(el("span", { class: "num" }, [pct(findings.q2.heard_cruise_share)]), " of cells are where the feed was shown to hear at drone height. Pale cells are unproven, not empty: turn on airports to see where arrivals are lost.");
+      summary.append(el("span", { class: "num" }, [pct(findings.q2.heard_cruise_share)]), " of the area is where public tracking was shown to hear aircraft at drone height. Pale areas are unproven, not empty.");
     } else {
-      summary.append(el("span", { class: "num" }, [`at least ${pct(findings.q5.single_band_miss_share)}`]), " of low traffic was on 978 MHz or had no broadcast, so a 1090 MHz receiver alone would not hear it.");
+      summary.append(el("span", { class: "num" }, [`at least ${pct(findings.q5.single_band_miss_share)}`]), " of low traffic was on the second band (978 MHz) or not broadcasting, so a receiver on 1090 MHz alone would not hear it.");
     }
     map.setState({ ...state });
     drawHours();
