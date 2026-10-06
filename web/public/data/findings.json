@@ -1,0 +1,1432 @@
+{
+ "window": {
+  "utc_days": [
+   "2026-09-28",
+   "2026-09-29",
+   "2026-09-30",
+   "2026-10-01",
+   "2026-10-02",
+   "2026-10-03",
+   "2026-10-04"
+  ],
+  "hours": 168,
+  "by_hour": [
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7
+  ],
+  "weekday_hours": 120,
+  "weekend_hours": 48,
+  "local_start": "2026-09-27 19:00",
+  "local_end": "2026-10-04 19:00"
+ },
+ "health": {
+  "days": [
+   {
+    "date": "2026-09-28",
+    "points": 806246,
+    "aircraft": 2149,
+    "large_aircraft": 896,
+    "light_aircraft": 687,
+    "tracked_hours": 724.207553
+   },
+   {
+    "date": "2026-09-29",
+    "points": 947705,
+    "aircraft": 2349,
+    "large_aircraft": 880,
+    "light_aircraft": 827,
+    "tracked_hours": 870.464792
+   },
+   {
+    "date": "2026-09-30",
+    "points": 636749,
+    "aircraft": 1912,
+    "large_aircraft": 869,
+    "light_aircraft": 500,
+    "tracked_hours": 521.299181
+   },
+   {
+    "date": "2026-10-01",
+    "points": 321682,
+    "aircraft": 1344,
+    "large_aircraft": 832,
+    "light_aircraft": 159,
+    "tracked_hours": 187.743483
+   },
+   {
+    "date": "2026-10-02",
+    "points": 495387,
+    "aircraft": 1691,
+    "large_aircraft": 959,
+    "light_aircraft": 309,
+    "tracked_hours": 322.2361
+   },
+   {
+    "date": "2026-10-03",
+    "points": 397588,
+    "aircraft": 1283,
+    "large_aircraft": 879,
+    "light_aircraft": 170,
+    "tracked_hours": 215.553133
+   },
+   {
+    "date": "2026-10-04",
+    "points": 429118,
+    "aircraft": 1539,
+    "large_aircraft": 857,
+    "light_aircraft": 348,
+    "tracked_hours": 286.134317
+   }
+  ],
+  "thin_hours": [
+   {
+    "utc": "2026-10-01 13:00",
+    "points": 3708,
+    "typical": 23547
+   }
+  ],
+  "hours_checked": 168
+ },
+ "q1": {
+  "area": {
+   "operating_sq_mi": 10893.105089,
+   "mandatory_sq_mi": 3744.320787,
+   "mandatory_share": 0.343733,
+   "carveout_sq_mi": 3369.178946,
+   "carveout_share": 0.309295,
+   "outside_rule_sq_mi": 7148.784302,
+   "outside_rule_share": 0.656267,
+   "veil_sq_mi": 3744.320787,
+   "class_b_low_sq_mi": 375.141841,
+   "class_c_low_sq_mi": 0.0,
+   "class_d_surface_sq_mi": 907.962267,
+   "medical_heliports": 62,
+   "heliports": 115,
+   "public_airports": 60
+  },
+  "traffic": {
+   "low_band_hours": 1275.446511,
+   "share_where_required": 0.844124,
+   "share_outside_rule": 0.155876
+  }
+ },
+ "q2": {
+  "cells": 5001,
+  "min_support": 3,
+  "tiers": {
+   "cruise": 484,
+   "low": 2021,
+   "higher": 2392,
+   "none": 104
+  },
+  "heard_cruise_share": 0.096781,
+  "heard_low_share": 0.5009,
+  "not_shown_share": 0.4991,
+  "airports": {
+   "checked": 44,
+   "tracked_to_ground": 22,
+   "min_visits": 5,
+   "radius_nm": 1.5,
+   "ground_ft": 100.0,
+   "table": [
+    {
+     "id": "DFW",
+     "name": "Dallas-Fort Worth Intl",
+     "use": "PU",
+     "lon": -97.03769,
+     "lat": 32.89723,
+     "visits": 5113,
+     "median_lowest_ft": 0.0,
+     "to_ground_share": 0.991981,
+     "hub_nm": 0.030261
+    },
+    {
+     "id": "DAL",
+     "name": "Dallas Love Field",
+     "use": "PU",
+     "lon": -96.85088,
+     "lat": 32.84594,
+     "visits": 2619,
+     "median_lowest_ft": 0.0,
+     "to_ground_share": 0.87438,
+     "hub_nm": 9.885426
+    },
+    {
+     "id": "ADS",
+     "name": "Addison",
+     "use": "PU",
+     "lon": -96.83645,
+     "lat": 32.96855,
+     "visits": 779,
+     "median_lowest_ft": 2.077018,
+     "to_ground_share": 0.883184,
+     "hub_nm": 11.000469
+    },
+    {
+     "id": "FTW",
+     "name": "Fort Worth Meacham Intl",
+     "use": "PU",
+     "lon": -97.36245,
+     "lat": 32.81977,
+     "visits": 716,
+     "median_lowest_ft": 166.186515,
+     "to_ground_share": 0.291899,
+     "hub_nm": 16.946602
+    },
+    {
+     "id": "AFW",
+     "name": "Perot Field/Fort Worth Alliance",
+     "use": "PU",
+     "lon": -97.31943,
+     "lat": 32.99031,
+     "visits": 493,
+     "median_lowest_ft": 245.016796,
+     "to_ground_share": 0.217039,
+     "hub_nm": 15.204854
+    },
+    {
+     "id": "DTO",
+     "name": "Denton Enterprise",
+     "use": "PU",
+     "lon": -97.1991,
+     "lat": 33.20196,
+     "visits": 407,
+     "median_lowest_ft": 157.874172,
+     "to_ground_share": 0.255528,
+     "hub_nm": 20.084437
+    },
+    {
+     "id": "TKI",
+     "name": "McKinney National",
+     "use": "PU",
+     "lon": -96.58877,
+     "lat": 33.17707,
+     "visits": 316,
+     "median_lowest_ft": 296.430828,
+     "to_ground_share": 0.079114,
+     "hub_nm": 28.14696
+    },
+    {
+     "id": "RBD",
+     "name": "Dallas Executive",
+     "use": "PU",
+     "lon": -96.86878,
+     "lat": 32.68131,
+     "visits": 229,
+     "median_lowest_ft": 0.0,
+     "to_ground_share": 0.921397,
+     "hub_nm": 15.521305
+    },
+    {
+     "id": "GKY",
+     "name": "Arlington Municipal",
+     "use": "PU",
+     "lon": -97.09428,
+     "lat": 32.66387,
+     "visits": 228,
+     "median_lowest_ft": 0.0,
+     "to_ground_share": 0.877193,
+     "hub_nm": 14.314122
+    },
+    {
+     "id": "GPM",
+     "name": "Grand Prairie Municipal",
+     "use": "PU",
+     "lon": -97.04692,
+     "lat": 32.69878,
+     "visits": 166,
+     "median_lowest_ft": 0.0,
+     "to_ground_share": 0.957831,
+     "hub_nm": 11.937553
+    },
+    {
+     "id": "FWS",
+     "name": "Fort Worth Spinks",
+     "use": "PU",
+     "lon": -97.30844,
+     "lat": 32.56513,
+     "visits": 135,
+     "median_lowest_ft": 40.855446,
+     "to_ground_share": 0.57037,
+     "hub_nm": 24.171822
+    },
+    {
+     "id": "LUD",
+     "name": "Decatur Municipal",
+     "use": "PU",
+     "lon": -97.5805,
+     "lat": 33.25425,
+     "visits": 93,
+     "median_lowest_ft": 412.485353,
+     "to_ground_share": 0.172043,
+     "hub_nm": 34.680061
+    },
+    {
+     "id": "52F",
+     "name": "Aero Valley",
+     "use": "PU",
+     "lon": -97.23224,
+     "lat": 33.04984,
+     "visits": 89,
+     "median_lowest_ft": 132.025539,
+     "to_ground_share": 0.438202,
+     "hub_nm": 13.415707
+    },
+    {
+     "id": "JWY",
+     "name": "Mid-Way Regional",
+     "use": "PU",
+     "lon": -96.91253,
+     "lat": 32.45829,
+     "visits": 86,
+     "median_lowest_ft": 0.0,
+     "to_ground_share": 0.883721,
+     "hub_nm": 27.156239
+    },
+    {
+     "id": "HQZ",
+     "name": "Mesquite Metro",
+     "use": "PU",
+     "lon": -96.53042,
+     "lat": 32.74696,
+     "visits": 85,
+     "median_lowest_ft": 92.144481,
+     "to_ground_share": 0.552941,
+     "hub_nm": 27.060122
+    },
+    {
+     "id": "TRL",
+     "name": "Terrell Municipal",
+     "use": "PU",
+     "lon": -96.26709,
+     "lat": 32.70849,
+     "visits": 84,
+     "median_lowest_ft": 88.29041,
+     "to_ground_share": 0.547619,
+     "hub_nm": 40.379752
+    },
+    {
+     "id": "XBP",
+     "name": "Bridgeport Municipal",
+     "use": "PU",
+     "lon": -97.82843,
+     "lat": 33.17396,
+     "visits": 73,
+     "median_lowest_ft": 330.037313,
+     "to_ground_share": 0.123288,
+     "hub_nm": 42.99517
+    },
+    {
+     "id": "T67",
+     "name": "Hicks Airfield",
+     "use": "PU",
+     "lon": -97.41169,
+     "lat": 32.93124,
+     "visits": 72,
+     "median_lowest_ft": 112.786429,
+     "to_ground_share": 0.444444,
+     "hub_nm": 18.873339
+    },
+    {
+     "id": "LNC",
+     "name": "Lancaster Regional",
+     "use": "PU",
+     "lon": -96.7175,
+     "lat": 32.5776,
+     "visits": 70,
+     "median_lowest_ft": 32.031857,
+     "to_ground_share": 0.642857,
+     "hub_nm": 25.093499
+    },
+    {
+     "id": "GDJ",
+     "name": "Granbury Regional",
+     "use": "PU",
+     "lon": -97.82137,
+     "lat": 32.44307,
+     "visits": 59,
+     "median_lowest_ft": 108.937818,
+     "to_ground_share": 0.491525,
+     "hub_nm": 47.987381
+    },
+    {
+     "id": "T31",
+     "name": "Aero Country",
+     "use": "PU",
+     "lon": -96.74194,
+     "lat": 33.20845,
+     "visits": 48,
+     "median_lowest_ft": 45.772437,
+     "to_ground_share": 0.75,
+     "hub_nm": 23.934423
+    },
+    {
+     "id": "GVT",
+     "name": "Majors",
+     "use": "PU",
+     "lon": -96.06533,
+     "lat": 33.06783,
+     "visits": 47,
+     "median_lowest_ft": 447.671536,
+     "to_ground_share": 0.0,
+     "hub_nm": 49.862049
+    },
+    {
+     "id": "CPT",
+     "name": "Cleburne Regional",
+     "use": "PU",
+     "lon": -97.43375,
+     "lat": 32.35375,
+     "visits": 47,
+     "median_lowest_ft": 260.935702,
+     "to_ground_share": 0.255319,
+     "hub_nm": 38.303711
+    },
+    {
+     "id": "WEA",
+     "name": "Parker County",
+     "use": "PU",
+     "lon": -97.68247,
+     "lat": 32.74573,
+     "visits": 45,
+     "median_lowest_ft": 303.034634,
+     "to_ground_share": 0.111111,
+     "hub_nm": 33.644455
+    },
+    {
+     "id": "7F3",
+     "name": "Caddo Mills Municipal",
+     "use": "PU",
+     "lon": -96.24314,
+     "lat": 33.03622,
+     "visits": 45,
+     "median_lowest_ft": 440.86261,
+     "to_ground_share": 0.088889,
+     "hub_nm": 40.750676
+    },
+    {
+     "id": "TS00",
+     "name": "Fuller",
+     "use": "PR",
+     "lon": -97.18085,
+     "lat": 32.78819,
+     "visits": 43,
+     "median_lowest_ft": 68.592014,
+     "to_ground_share": 0.697674,
+     "hub_nm": 9.712453
+    },
+    {
+     "id": "F46",
+     "name": "Ralph M Hall/Rockwall Municipal",
+     "use": "PU",
+     "lon": -96.43549,
+     "lat": 32.93059,
+     "visits": 40,
+     "median_lowest_ft": 42.834893,
+     "to_ground_share": 0.775,
+     "hub_nm": 30.314633
+    },
+    {
+     "id": "NFW",
+     "name": "Fort Worth NAS JRB (Carswell Field)",
+     "use": "PR",
+     "lon": -97.44153,
+     "lat": 32.76919,
+     "visits": 35,
+     "median_lowest_ft": 124.556969,
+     "to_ground_share": 0.371429,
+     "hub_nm": 21.686546
+    },
+    {
+     "id": "50F",
+     "name": "Bourland Field",
+     "use": "PU",
+     "lon": -97.59078,
+     "lat": 32.58183,
+     "visits": 34,
+     "median_lowest_ft": 241.620176,
+     "to_ground_share": 0.264706,
+     "hub_nm": 33.665527
+    },
+    {
+     "id": "16X",
+     "name": "Propwash",
+     "use": "PU",
+     "lon": -97.35842,
+     "lat": 33.08061,
+     "visits": 21,
+     "median_lowest_ft": 277.434182,
+     "to_ground_share": 0.238095,
+     "hub_nm": 19.517138
+    },
+    {
+     "id": "5TX0",
+     "name": "Hidden Valley Airpark",
+     "use": "PR",
+     "lon": -97.0514,
+     "lat": 33.17345,
+     "visits": 19,
+     "median_lowest_ft": 99.619221,
+     "to_ground_share": 0.526316,
+     "hub_nm": 16.685592
+    },
+    {
+     "id": "0TX1",
+     "name": "Pecan Plantation",
+     "use": "PR",
+     "lon": -97.67615,
+     "lat": 32.35369,
+     "visits": 18,
+     "median_lowest_ft": 384.942098,
+     "to_ground_share": 0.055556,
+     "hub_nm": 45.864782
+    },
+    {
+     "id": "66TE",
+     "name": "The Landings",
+     "use": "PR",
+     "lon": -97.64501,
+     "lat": 32.36552,
+     "visits": 18,
+     "median_lowest_ft": 617.655308,
+     "to_ground_share": 0.0,
+     "hub_nm": 44.259825
+    },
+    {
+     "id": "4T2",
+     "name": "Kenneth Copeland",
+     "use": "PU",
+     "lon": -97.49229,
+     "lat": 32.97763,
+     "visits": 17,
+     "median_lowest_ft": 66.817495,
+     "to_ground_share": 0.588235,
+     "hub_nm": 23.313174
+    },
+    {
+     "id": "T56",
+     "name": "Eagle's Nest Estates",
+     "use": "PU",
+     "lon": -96.92678,
+     "lat": 32.51281,
+     "visits": 17,
+     "median_lowest_ft": 0.0,
+     "to_ground_share": 1.0,
+     "hub_nm": 23.79637
+    },
+    {
+     "id": "F41",
+     "name": "Ennis Municipal",
+     "use": "PU",
+     "lon": -96.6639,
+     "lat": 32.3297,
+     "visits": 14,
+     "median_lowest_ft": 1.532925,
+     "to_ground_share": 0.928571,
+     "hub_nm": 39.009932
+    },
+    {
+     "id": "35X",
+     "name": "Triple-Ace Field",
+     "use": "PU",
+     "lon": -97.55356,
+     "lat": 33.25186,
+     "visits": 13,
+     "median_lowest_ft": 681.341851,
+     "to_ground_share": 0.076923,
+     "hub_nm": 33.540717
+    },
+    {
+     "id": "76F",
+     "name": "Van Zandt County Regional",
+     "use": "PU",
+     "lon": -95.98414,
+     "lat": 32.68142,
+     "visits": 9,
+     "median_lowest_ft": 240.930636,
+     "to_ground_share": 0.222222,
+     "hub_nm": 54.552176
+    },
+    {
+     "id": "9XA4",
+     "name": "Chimera Aerodrome",
+     "use": "PR",
+     "lon": -97.03986,
+     "lat": 32.35573,
+     "visits": 8,
+     "median_lowest_ft": 33.628191,
+     "to_ground_share": 0.625,
+     "hub_nm": 32.585964
+    },
+    {
+     "id": "4TX8",
+     "name": "Addington Field",
+     "use": "PR",
+     "lon": -97.22391,
+     "lat": 33.24873,
+     "visits": 7,
+     "median_lowest_ft": 395.883777,
+     "to_ground_share": 0.285714,
+     "hub_nm": 23.164506
+    },
+    {
+     "id": "F69",
+     "name": "Air Park-Dallas",
+     "use": "PU",
+     "lon": -96.83695,
+     "lat": 33.02345,
+     "visits": 7,
+     "median_lowest_ft": 53.874517,
+     "to_ground_share": 1.0,
+     "hub_nm": 12.648767
+    },
+    {
+     "id": "T80",
+     "name": "Bishop's Landing",
+     "use": "PU",
+     "lon": -96.72894,
+     "lat": 33.37652,
+     "visits": 5,
+     "median_lowest_ft": 303.215419,
+     "to_ground_share": 0.4,
+     "hub_nm": 32.792964
+    },
+    {
+     "id": "T38",
+     "name": "Bar V K",
+     "use": "PU",
+     "lon": -97.24347,
+     "lat": 33.37625,
+     "visits": 5,
+     "median_lowest_ft": 98.091219,
+     "to_ground_share": 0.6,
+     "hub_nm": 30.673599
+    },
+    {
+     "id": "74T",
+     "name": "Hicks",
+     "use": "PU",
+     "lon": -97.25461,
+     "lat": 33.18301,
+     "visits": 5,
+     "median_lowest_ft": 86.2674,
+     "to_ground_share": 0.6,
+     "hub_nm": 20.380527
+    }
+   ],
+   "by_distance": [
+    {
+     "lo_nm": 0,
+     "hi_nm": 10,
+     "airports": 3,
+     "visits": 7775,
+     "median_of_medians_ft": 0.0,
+     "to_ground_share": 0.95074
+    },
+    {
+     "lo_nm": 10,
+     "hi_nm": 20,
+     "airports": 11,
+     "visits": 2819,
+     "median_of_medians_ft": 99.619221,
+     "to_ground_share": 0.591344
+    },
+    {
+     "lo_nm": 20,
+     "hi_nm": 30,
+     "airports": 12,
+     "visits": 1228,
+     "median_of_medians_ft": 76.542448,
+     "to_ground_share": 0.370521
+    },
+    {
+     "lo_nm": 30,
+     "hi_nm": 45,
+     "airports": 14,
+     "visits": 524,
+     "median_of_medians_ft": 281.985168,
+     "to_ground_share": 0.29771
+    },
+    {
+     "lo_nm": 45,
+     "hi_nm": 70,
+     "airports": 4,
+     "visits": 133,
+     "median_of_medians_ft": 312.936367,
+     "to_ground_share": 0.240602
+    }
+   ]
+  }
+ },
+ "q3": {
+  "cruise": {
+   "aircraft_hours": 432.127967,
+   "distinct_aircraft": 5585,
+   "average_present": 2.57219,
+   "hours_per_day": 61.732567,
+   "by_class": {
+    "rotorcraft": 76.302244,
+    "light": 188.079097,
+    "small": 33.10615,
+    "large": 131.503369,
+    "unknown": 1.988397,
+    "other": 1.148708
+   },
+   "by_hour_present": [
+    0.381715,
+    0.181651,
+    0.129696,
+    0.10048,
+    0.099542,
+    0.38494,
+    0.787238,
+    2.05369,
+    4.238006,
+    4.287696,
+    5.0781,
+    4.784181,
+    4.013865,
+    5.097959,
+    4.319418,
+    4.227895,
+    3.979788,
+    3.612031,
+    4.023476,
+    3.165099,
+    2.537677,
+    1.982408,
+    1.401067,
+    0.86495
+   ],
+   "weekday_present": 3.054183,
+   "weekend_present": 1.367208
+  },
+  "low": {
+   "aircraft_hours": 1275.446511,
+   "distinct_aircraft": 5763,
+   "average_present": 7.591944,
+   "hours_per_day": 182.206644,
+   "by_class": {
+    "rotorcraft": 207.000117,
+    "light": 640.763911,
+    "small": 84.072192,
+    "large": 329.203961,
+    "unknown": 10.507131,
+    "other": 3.8992
+   },
+   "by_hour_present": [
+    1.250789,
+    0.732423,
+    0.490352,
+    0.367772,
+    0.313946,
+    1.142204,
+    2.159038,
+    6.338924,
+    13.060613,
+    12.905931,
+    14.976877,
+    14.460963,
+    11.70342,
+    15.299283,
+    12.962694,
+    11.991706,
+    10.988861,
+    10.68944,
+    11.944496,
+    9.115865,
+    6.876619,
+    5.711684,
+    4.001464,
+    2.72128
+   ],
+   "weekday_present": 9.07927,
+   "weekend_present": 3.873628
+  },
+  "min_distinct_for_a_cell": 3
+ },
+ "q4": {
+  "low_band_hours": 1275.446511,
+  "public_runway_3nm": {
+   "hours": 1043.480733,
+   "share_of_low": 0.81813,
+   "share_of_remainder": 4.498425,
+   "by_class": {
+    "rotorcraft": 88.660167,
+    "light": 559.251167,
+    "small": 77.094444,
+    "large": 308.266058,
+    "unknown": 6.82745,
+    "other": 3.381447
+   }
+  },
+  "remainder_hours": 231.965778,
+  "remainder_by_class": {
+   "rotorcraft": 118.33995,
+   "light": 81.512744,
+   "small": 6.977747,
+   "large": 20.937903,
+   "unknown": 3.679681,
+   "other": 0.517753
+  },
+  "private_runway_3nm": {
+   "hours": 91.493392,
+   "share_of_low": 0.071734,
+   "share_of_remainder": 0.394426,
+   "by_class": {
+    "rotorcraft": 42.989494,
+    "light": 42.247581,
+    "small": 1.708764,
+    "large": 2.849283,
+    "unknown": 1.291644,
+    "other": 0.406625
+   }
+  },
+  "hospital_1nm": {
+   "hours": 11.439461,
+   "share_of_low": 0.008969,
+   "share_of_remainder": 0.049315,
+   "by_class": {
+    "rotorcraft": 9.727625,
+    "light": 0.978497,
+    "small": 0.1115,
+    "large": 0.523864,
+    "unknown": 0.097975,
+    "other": 0.0
+   }
+  },
+  "other_heliport_1nm": {
+   "hours": 10.801856,
+   "share_of_low": 0.008469,
+   "share_of_remainder": 0.046567,
+   "by_class": {
+    "rotorcraft": 8.254642,
+    "light": 1.073064,
+    "small": 0.349392,
+    "large": 0.688286,
+    "unknown": 0.43145,
+    "other": 0.005022
+   }
+  },
+  "elsewhere": {
+   "hours": 118.231069,
+   "share_of_low": 0.092698,
+   "share_of_remainder": 0.509692,
+   "by_class": {
+    "rotorcraft": 57.368189,
+    "light": 37.213603,
+    "small": 4.808092,
+    "large": 16.876469,
+    "unknown": 1.858611,
+    "other": 0.106106
+   }
+  },
+  "class_d_share_of_remainder": 0.110329,
+  "medical_heliports": 62,
+  "heliports": 115,
+  "hotspots": [
+   {
+    "lat": 32.797,
+    "lon": -97.1484,
+    "cells": [
+     "8726cbd21ffffff",
+     "8726cbd23ffffff",
+     "8726cbd2cffffff",
+     "8726cbd2effffff"
+    ],
+    "hours": 14.159406,
+    "minutes_per_day": 121.366333,
+    "aircraft": 32,
+    "by_class": {
+     "rotorcraft": 14.089939,
+     "unknown": 0.069467
+    },
+    "top_class": "rotorcraft",
+    "busiest_3h_start": 8,
+    "busiest_3h_share": 0.424029,
+    "nearest_public": {
+     "id": "GPM",
+     "name": "Grand Prairie Municipal",
+     "nm": 7.81564,
+     "dir": "NW"
+    },
+    "nearest_pad": {
+     "id": "XS04",
+     "name": "Bell South Airfield",
+     "nm": 0.117112,
+     "dir": "W"
+    }
+   },
+   {
+    "lat": 32.7356,
+    "lon": -97.3417,
+    "cells": [
+     "8726cbda3ffffff",
+     "8726cbdaeffffff"
+    ],
+    "hours": 1.674453,
+    "minutes_per_day": 14.352452,
+    "aircraft": 17,
+    "by_class": {
+     "rotorcraft": 1.674453
+    },
+    "top_class": "rotorcraft",
+    "busiest_3h_start": 15,
+    "busiest_3h_share": 0.339199,
+    "nearest_public": {
+     "id": "FTW",
+     "name": "Fort Worth Meacham Intl",
+     "nm": 5.174307,
+     "dir": "S"
+    },
+    "nearest_pad": {
+     "id": "XA37",
+     "name": "Plaza Medical Center",
+     "nm": 0.13497,
+     "dir": "NE"
+    }
+   },
+   {
+    "lat": 32.7348,
+    "lon": -96.9644,
+    "cells": [
+     "8726cb996ffffff"
+    ],
+    "hours": 1.037161,
+    "minutes_per_day": 8.889952,
+    "aircraft": 5,
+    "by_class": {
+     "rotorcraft": 1.037161
+    },
+    "top_class": "rotorcraft",
+    "busiest_3h_start": 8,
+    "busiest_3h_share": 0.775008,
+    "nearest_public": {
+     "id": "GPM",
+     "name": "Grand Prairie Municipal",
+     "nm": 4.685266,
+     "dir": "NE"
+    },
+    "nearest_pad": {
+     "id": "TX18",
+     "name": "Redmond Taylor AHP",
+     "nm": 0.398742,
+     "dir": "E"
+    }
+   },
+   {
+    "lat": 32.7823,
+    "lon": -97.4399,
+    "cells": [
+     "8726caae9ffffff",
+     "8726cbdb2ffffff",
+     "8726cbdb6ffffff"
+    ],
+    "hours": 0.884531,
+    "minutes_per_day": 7.58169,
+    "aircraft": 23,
+    "by_class": {
+     "light": 0.082756,
+     "other": 0.050039,
+     "large": 0.641122,
+     "small": 0.082847,
+     "unknown": 0.027767
+    },
+    "top_class": "large",
+    "busiest_3h_start": 19,
+    "busiest_3h_share": 0.543876,
+    "nearest_public": {
+     "id": "FTW",
+     "name": "Fort Worth Meacham Intl",
+     "nm": 4.501815,
+     "dir": "SW"
+    },
+    "nearest_pad": {
+     "id": "NFW",
+     "name": "Fort Worth NAS JRB (Carswell Field)",
+     "nm": 0.793221,
+     "dir": "N"
+    }
+   },
+   {
+    "lat": 32.7608,
+    "lon": -96.8152,
+    "cells": [
+     "8726cb9a1ffffff"
+    ],
+    "hours": 0.706394,
+    "minutes_per_day": 6.05481,
+    "aircraft": 8,
+    "by_class": {
+     "unknown": 0.034686,
+     "rotorcraft": 0.671708
+    },
+    "top_class": "rotorcraft",
+    "busiest_3h_start": 23,
+    "busiest_3h_share": 0.343568,
+    "nearest_public": {
+     "id": "DAL",
+     "name": "Dallas Love Field",
+     "nm": 5.430401,
+     "dir": "S"
+    },
+    "nearest_pad": {
+     "id": "XA62",
+     "name": "Methodist Dallas Medical Center",
+     "nm": 0.461597,
+     "dir": "E"
+    }
+   },
+   {
+    "lat": 32.8979,
+    "lon": -96.7679,
+    "cells": [
+     "8726c8668ffffff",
+     "8726c866cffffff"
+    ],
+    "hours": 0.626228,
+    "minutes_per_day": 5.367667,
+    "aircraft": 14,
+    "by_class": {
+     "rotorcraft": 0.626228
+    },
+    "top_class": "rotorcraft",
+    "busiest_3h_start": 14,
+    "busiest_3h_share": 0.255556,
+    "nearest_public": {
+     "id": "DAL",
+     "name": "Dallas Love Field",
+     "nm": 5.210487,
+     "dir": "NE"
+    },
+    "nearest_pad": {
+     "id": "85TS",
+     "name": "Medical City Dallas East",
+     "nm": 0.863614,
+     "dir": "S"
+    }
+   },
+   {
+    "lat": 33.0631,
+    "lon": -97.2969,
+    "cells": [
+     "8726cab63ffffff"
+    ],
+    "hours": 0.491708,
+    "minutes_per_day": 4.214643,
+    "aircraft": 4,
+    "by_class": {
+     "rotorcraft": 0.491708
+    },
+    "top_class": "rotorcraft",
+    "busiest_3h_start": 10,
+    "busiest_3h_share": 0.461481,
+    "nearest_public": {
+     "id": "16X",
+     "name": "Propwash",
+     "nm": 3.255596,
+     "dir": "E"
+    },
+    "nearest_pad": {
+     "id": "3XS7",
+     "name": "Bell Training Facility",
+     "nm": 0.858182,
+     "dir": "N"
+    }
+   },
+   {
+    "lat": 32.8852,
+    "lon": -96.6976,
+    "cells": [
+     "8726c8298ffffff"
+    ],
+    "hours": 0.477936,
+    "minutes_per_day": 4.096595,
+    "aircraft": 9,
+    "by_class": {
+     "rotorcraft": 0.477936
+    },
+    "top_class": "rotorcraft",
+    "busiest_3h_start": 12,
+    "busiest_3h_share": 0.551346,
+    "nearest_public": {
+     "id": "DAL",
+     "name": "Dallas Love Field",
+     "nm": 8.052029,
+     "dir": "E"
+    },
+    "nearest_pad": {
+     "id": "T57",
+     "name": "Garland/DFW Heloplex",
+     "nm": 0.642452,
+     "dir": "W"
+    }
+   },
+   {
+    "lat": 33.0257,
+    "lon": -96.7705,
+    "cells": [
+     "8726c874cffffff",
+     "8726c876affffff"
+    ],
+    "hours": 0.443769,
+    "minutes_per_day": 3.803738,
+    "aircraft": 10,
+    "by_class": {
+     "rotorcraft": 0.442919,
+     "unknown": 0.00085
+    },
+    "top_class": "rotorcraft",
+    "busiest_3h_start": 13,
+    "busiest_3h_share": 0.372391,
+    "nearest_public": {
+     "id": "F69",
+     "name": "Air Park-Dallas",
+     "nm": 3.335571,
+     "dir": "E"
+    },
+    "nearest_pad": {
+     "id": "6TS9",
+     "name": "MCP",
+     "nm": 0.276434,
+     "dir": "NW"
+    }
+   },
+   {
+    "lat": 32.792,
+    "lon": -96.7859,
+    "cells": [
+     "8726cb916ffffff"
+    ],
+    "hours": 0.389231,
+    "minutes_per_day": 3.336262,
+    "aircraft": 3,
+    "by_class": {
+     "rotorcraft": 0.389231
+    },
+    "top_class": "rotorcraft",
+    "busiest_3h_start": 19,
+    "busiest_3h_share": 0.256446,
+    "nearest_public": {
+     "id": "DAL",
+     "name": "Dallas Love Field",
+     "nm": 4.610672,
+     "dir": "SE"
+    },
+    "nearest_pad": {
+     "id": "XA61",
+     "name": "Baylor University Medical Center Dallas",
+     "nm": 0.362496,
+     "dir": "NW"
+    }
+   }
+  ]
+ },
+ "q5": {
+  "low_band_hours": 1275.446511,
+  "by_link": {
+   "adsb_1090": {
+    "hours": 1183.039167,
+    "share": 0.927549
+   },
+   "uat_or_adsr": {
+    "hours": 85.728911,
+    "share": 0.067215
+   },
+   "tisb_only": {
+    "hours": 4.282772,
+    "share": 0.003358
+   },
+   "mlat_only": {
+    "hours": 2.395661,
+    "share": 0.001878
+   }
+  },
+  "aircraft_by_link": {
+   "uat_or_adsr": 249,
+   "tisb_only": 202,
+   "adsb_1090": 5302,
+   "mlat_only": 52
+  },
+  "by_class": {
+   "rotorcraft": {
+    "hours": 207.000117,
+    "adsb_1090": 0.939049,
+    "uat_or_adsr": 0.053962,
+    "tisb_only": 0.001842,
+    "mlat_only": 0.005147
+   },
+   "light": {
+    "hours": 640.763911,
+    "adsb_1090": 0.885588,
+    "uat_or_adsr": 0.112993,
+    "tisb_only": 0.001234,
+    "mlat_only": 0.000185
+   },
+   "small": {
+    "hours": 84.072192,
+    "adsb_1090": 0.991412,
+    "uat_or_adsr": 0.0034,
+    "tisb_only": 0.004368,
+    "mlat_only": 0.000821
+   },
+   "large": {
+    "hours": 329.203961,
+    "adsb_1090": 0.999934,
+    "uat_or_adsr": 0.0,
+    "tisb_only": 0.0,
+    "mlat_only": 6.6e-05
+   },
+   "unknown": {
+    "hours": 10.507131,
+    "adsb_1090": 0.454082,
+    "uat_or_adsr": 0.178106,
+    "tisb_only": 0.261109,
+    "mlat_only": 0.106703
+   },
+   "other": {
+    "hours": 3.8992,
+    "adsb_1090": 1.0,
+    "uat_or_adsr": 0.0,
+    "tisb_only": 0.0,
+    "mlat_only": 0.0
+   }
+  },
+  "dual_band_miss_share": 0.005236,
+  "single_band_miss_share": 0.072451,
+  "uat_share": 0.067215,
+  "inside_rule": {
+   "hours": 1076.635256,
+   "dual_band_miss_share": 0.005309,
+   "uat_share": 0.065853
+  },
+  "outside_rule": {
+   "hours": 198.811256,
+   "dual_band_miss_share": 0.004839,
+   "uat_share": 0.074591
+  },
+  "other_hours": 0.0,
+  "lower_bound": true
+ },
+ "checks": {
+  "low_class_hours": 1275.446511,
+  "low_hours": 1275.446511,
+  "low_zone_hours": 1275.446511
+ },
+ "sensitivity": {
+  "shift_ft": 100.0,
+  "flip_pp": 0.05,
+  "runs": {
+   "minus": {
+    "cruise_hours": 460.657656,
+    "low_hours": 1164.284364,
+    "public_runway_share": 0.840789,
+    "single_band_miss_share": 0.071576,
+    "dual_band_miss_share": 0.005335,
+    "rotorcraft_share_of_cruise": 0.13842
+   },
+   "nominal": {
+    "cruise_hours": 432.127967,
+    "low_hours": 1275.446511,
+    "public_runway_share": 0.81813,
+    "single_band_miss_share": 0.072451,
+    "dual_band_miss_share": 0.005236,
+    "rotorcraft_share_of_cruise": 0.176573
+   },
+   "plus": {
+    "cruise_hours": 445.138531,
+    "low_hours": 1235.215711,
+    "public_runway_share": 0.780972,
+    "single_band_miss_share": 0.075658,
+    "dual_band_miss_share": 0.004583,
+    "rotorcraft_share_of_cruise": 0.196959
+   }
+  },
+  "inconclusive": []
+ },
+ "excluded_non_crewed_hours": 0.0,
+ "area_sq_mi_projected": 10893.105089,
+ "study": {
+  "name": "DFW Low-Altitude Surveillance Survey",
+  "window": [
+   "2026-09-28",
+   "2026-10-04"
+  ],
+  "timezone": "America/Chicago",
+  "area": {
+   "computed_sq_mi": 10894.093389,
+   "stated_sq_mi": 10904.0,
+   "delta_sq_mi": -9.906611,
+   "delta_pct": -0.000909,
+   "within_half_percent": true
+  },
+  "longitude_correction": "The printed NE longitude -95924358 is read as -95.924358.",
+  "instrument": "adsb.lol readsb archives, production feed plus mlat-only feed",
+  "replay_date": "2026-09-29",
+  "low_band_ft": [
+   0.0,
+   1200.0
+  ],
+  "cruise_band_ft": [
+   80.0,
+   580.0
+  ],
+  "cruise_ft": 330.0,
+  "enroute_ceiling_ft": 400.0,
+  "runway_buffer_nm": 3.0,
+  "heliport_buffer_nm": 1.0,
+  "site_radius_mi": 10.0,
+  "gap_cap_s": 30.0,
+  "h3_resolution": 7,
+  "classes": [
+   "rotorcraft",
+   "light",
+   "small",
+   "large",
+   "unknown",
+   "other"
+  ],
+  "links": [
+   "adsb_1090",
+   "uat_or_adsr",
+   "tisb_only",
+   "mlat_only"
+  ]
+ },
+ "calibration": {
+  "basis": "hae",
+  "global_hae": {
+   "n": 1103,
+   "mae_ft": 88.82137,
+   "p50_ft": 13.418401,
+   "p90_abs_ft": 62.296021
+  },
+  "global_msl": {
+   "n": 1103,
+   "mae_ft": 129.437081,
+   "p50_ft": -74.0,
+   "p90_abs_ft": 105.3
+  },
+  "chosen": {
+   "n": 1103,
+   "mae_ft": 88.82137,
+   "p50_ft": 13.418401,
+   "p90_abs_ft": 62.296021
+  },
+  "per_aircraft_msl_n": 2,
+  "histogram": [
+   {
+    "lo_ft": -250.0,
+    "n": 13
+   },
+   {
+    "lo_ft": -225.0,
+    "n": 0
+   },
+   {
+    "lo_ft": -200.0,
+    "n": 0
+   },
+   {
+    "lo_ft": -175.0,
+    "n": 0
+   },
+   {
+    "lo_ft": -150.0,
+    "n": 0
+   },
+   {
+    "lo_ft": -125.0,
+    "n": 0
+   },
+   {
+    "lo_ft": -100.0,
+    "n": 0
+   },
+   {
+    "lo_ft": -75.0,
+    "n": 7
+   },
+   {
+    "lo_ft": -50.0,
+    "n": 25
+   },
+   {
+    "lo_ft": -25.0,
+    "n": 218
+   },
+   {
+    "lo_ft": 0.0,
+    "n": 482
+   },
+   {
+    "lo_ft": 25.0,
+    "n": 200
+   },
+   {
+    "lo_ft": 50.0,
+    "n": 87
+   },
+   {
+    "lo_ft": 75.0,
+    "n": 19
+   },
+   {
+    "lo_ft": 100.0,
+    "n": 9
+   },
+   {
+    "lo_ft": 125.0,
+    "n": 6
+   },
+   {
+    "lo_ft": 150.0,
+    "n": 5
+   },
+   {
+    "lo_ft": 175.0,
+    "n": 2
+   },
+   {
+    "lo_ft": 200.0,
+    "n": 3
+   },
+   {
+    "lo_ft": 225.0,
+    "n": 27
+   }
+  ],
+  "runway_matches": 1103,
+  "geoid_model": "GEOID18",
+  "metar_reports": 2381,
+  "points": 8047181,
+  "airborne_points": 7346045,
+  "agl_geometric_share": 0.969164,
+  "agl_geometric_msl_share": 0.002274,
+  "agl_barometric_share": 0.014596,
+  "agl_missing_share": 0.013966,
+  "kept_points": 4104922
+ }
+}

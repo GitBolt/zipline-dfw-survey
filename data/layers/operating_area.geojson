@@ -1,0 +1,1 @@
+{"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {"name": "DFW operating area", "note": "The printed NE longitude -95924358 is read as -95.924358."}, "geometry": {"type": "Polygon", "coordinates": [[[-97.976603, 33.502972], [-97.976692, 32.178781], [-95.923964, 32.179006], [-95.924358, 33.502911], [-97.976603, 33.502972]]]}}]}

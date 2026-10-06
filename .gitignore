@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+node_modules/
+web/dist/
+data/archives/
+data/terrain/
+data/raw/
+data/agl/
+data/nasr/
+.DS_Store
