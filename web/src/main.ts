@@ -54,6 +54,7 @@ async function start(app: HTMLElement): Promise<void> {
     button.addEventListener("click", () => openSection(id));
     nav.append(button);
   }
+  nav.append(el("a", { class: "credit", href: "https://aab.is", target: "_blank", rel: "noopener" }, ["Built by Aabis"]));
   const filterToggle = el("button", { type: "button", class: "filter-toggle", "aria-controls": "filters", "aria-expanded": "false" }, ["Filters"]);
   filterToggle.addEventListener("click", () => {
     const open = rail.classList.toggle("open");
